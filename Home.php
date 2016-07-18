@@ -25,7 +25,7 @@
             <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
         </ul>
     </div>
-    <div class="col-sm-3 col-md-3">
+    <ul class="col-sm-3 col-md-3">
         <form class="navbar-form navbar-right" role="search">
             <div class="input-group">
                 <input type="text" class="form-control" placeholder="Search" name="q">
@@ -34,7 +34,7 @@
                 </div>
             </div>
         </form>
-    </div>
+    </ul>
 </nav>
 
 <div class="container">
