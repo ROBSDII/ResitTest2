@@ -65,58 +65,28 @@ else {
     echo "<p> Connection sucessful</p>";
 }
 
-$username = $_POST["username"];
-$password = $_POST["password"];
-
-//MYSQL INJECTION PROTECTION
-$username = stripslashes($username);
-$password = stripslashes($password);
-
-//MYSQL PASSWORD HASHING
-//$password = md5($password);
-
-//FIND THE USER IN THE DATABASE
-$sql="SELECT * FROM users WHERE username='". $username ."' and password='". $password . "'";
-//RUN THE QUERY
-$result = $db->query($sql);
-$loginSuccessful = 0;
-while($row = $result->fetch_array()) {
-    $loginSuccessful = 1;
-}
-// If result matched $username and $password, table row must be 1 row
-if($loginSuccessful==1){
-// Register $myusername, $mypassword and redirect to file "index.php"
-    session_start();
-    $_SESSION['username'] = $username;
-    header("location:http://bigbugfinder.azurewebsites.net/Home.php");
-}
-else {
-    echo "Wrong Username or Password";
-}
-
-/**
 session_start(); // Starting Session
 //echo "<p> starting session</p>";
 $error=''; // Variable To Store Error Message
 
-if (isset($_POST['email']) && isset($_POST['password'])) {
-    if (empty($_POST['email']) || empty($_POST['password'])) {
-        $error = "Email or Password is invalid";
+if (isset($_POST['username']) && isset($_POST['password'])) {
+    if (empty($_POST['username']) || empty($_POST['password'])) {
+        $error = "username or password is invalid";
         echo "<br>";
-        echo "<a href='index.php'>" . "Click here to try again" . "</a>";
+        echo "<a href='Home.php'>" . "Click here to try again" . "</a>";
     }
 
 
 // Define $username and $password
-    $email = $_POST['email'];
+    $username = $_POST['username'];
     $password = $_POST['password'];
 // Establishing Connection with Server by passing server_name, user_id and password as a parameter
 // To protect MySQL injection for Security purpose
-    $email = stripslashes($email);
+    $username = stripslashes($username);
     $password = stripslashes($password);
 
 // SQL query to fetch information of registerd users and finds user match.
-    $query = "select * from logins where pword='".$password."' AND email='".$email."'";
+    $query = "SELECT * FROM developers WHERE password='".$password."' AND username='".$username."'";
     $result = $db->query($query);
     if(isset($result)){
         $rows = $result->fetch_array();
@@ -124,8 +94,8 @@ if (isset($_POST['email']) && isset($_POST['password'])) {
         //  while () {
         if (count($rows)> 0) {
 
-            $_SESSION['login_user'] = $email; // Initializing Session
-            header("location: authors.php"); // Redirecting To Other Page
+            $_SESSION['login_user'] = $username; // Initializing Session
+            header("location: Home.php"); // Redirecting To Other Page
         } else {
             $error = "Email or Password is invalid";
 
@@ -141,7 +111,7 @@ if (isset($_POST['email']) && isset($_POST['password'])) {
 
 
 echo $error;
- */
+
 
 ?>
 </html>
