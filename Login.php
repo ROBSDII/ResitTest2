@@ -64,6 +64,36 @@ if ($db->connect_errno) {
 else {
     echo "<p> Connection sucessful</p>";
 }
+
+$username = $_POST["username"];
+$password = $_POST["password"];
+
+//MYSQL INJECTION PROTECTION
+$username = stripslashes($username);
+$password = stripslashes($password);
+
+//MYSQL PASSWORD HASHING
+//$password = md5($password);
+
+//FIND THE USER IN THE DATABASE
+$sql="SELECT * FROM users WHERE username='". $username ."' and password='". $password . "'";
+//RUN THE QUERY
+$result = $db->query($sql);
+$loginSuccessful = 0;
+while($row = $result->fetch_array()) {
+    $loginSuccessful = 1;
+}
+// If result matched $username and $password, table row must be 1 row
+if($loginSuccessful==1){
+// Register $myusername, $mypassword and redirect to file "index.php"
+    session_start();
+    $_SESSION['username'] = $username;
+    header("location:http://bigbugfinder.azurewebsites.net/Home.php");
+}
+else {
+    echo "Wrong Username or Password";
+}
+
 /**
 session_start(); // Starting Session
 //echo "<p> starting session</p>";
