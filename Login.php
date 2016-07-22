@@ -35,6 +35,15 @@
     </div>
 
 </nav>
+<div id="content">
+    <div id="container">
+        <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_1"]);?>">
+          <label>Username: </label><input type="text" name="username"/><br><br/>
+            <label>Password: </label><input type="password" name="password"/><br><br/>
+            <input type="submit" value="Login"/><br/>
+        </form>
+    </div>
+</div>
 </body>
 <?php
 /**
@@ -43,5 +52,66 @@
  * Date: 7/21/2016
  * Time: 2:13 PM
  */
+$db = new mysqli(
+    "us-cdbr-azure-west-c.cloudapp.net",
+    "b790e3d6643f83",
+    "ad68dd37",
+    "1313768data"
+);
+if ($db->connect_errno) {
+    die('connection failed :'.$db->connect_error);
+}
+else {
+    echo "<p> Connection sucessful</p>";
+}
+/**
+session_start(); // Starting Session
+//echo "<p> starting session</p>";
+$error=''; // Variable To Store Error Message
+
+if (isset($_POST['email']) && isset($_POST['password'])) {
+    if (empty($_POST['email']) || empty($_POST['password'])) {
+        $error = "Email or Password is invalid";
+        echo "<br>";
+        echo "<a href='index.php'>" . "Click here to try again" . "</a>";
+    }
+
+
+// Define $username and $password
+    $email = $_POST['email'];
+    $password = $_POST['password'];
+// Establishing Connection with Server by passing server_name, user_id and password as a parameter
+// To protect MySQL injection for Security purpose
+    $email = stripslashes($email);
+    $password = stripslashes($password);
+
+// SQL query to fetch information of registerd users and finds user match.
+    $query = "select * from logins where pword='".$password."' AND email='".$email."'";
+    $result = $db->query($query);
+    if(isset($result)){
+        $rows = $result->fetch_array();
+
+        //  while () {
+        if (count($rows)> 0) {
+
+            $_SESSION['login_user'] = $email; // Initializing Session
+            header("location: authors.php"); // Redirecting To Other Page
+        } else {
+            $error = "Email or Password is invalid";
+
+        }
+        $result->close();
+    }
+    else{
+        echo "no results";
+    }
+
+    // }
+}
+
+
+echo $error;
+ */
+
 ?>
 </html>
