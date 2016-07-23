@@ -46,15 +46,15 @@
 
 <?php
 include('db_connect.php');
-$query = mysqli_query('SELECT bugs.title, bugs.username, bugs.datePosted 
+$sqlquery = "SELECT bugs.title, bugs.username, bugs.datePosted 
                          FROM TABLE bugs 
                      ORDER BY bugs.datePosted DESC 
-                        LIMIT 5') or die('Invalid query: ' . mysqli_error());
-
+                        LIMIT 5";
+$sqldb = mysqli_fetch_array($db, $sqlquery) or die('Invalid query');
 echo "<table>";
 echo "<tr><th>Recent Bugs</th><th>Developer</th><th>Date Posted</th></tr>";
 //print values to screen
-while ($row = mysqli_fetch_assoc($query)) {
+while ($row = mysqli_fetch_array($sqlquery, MYSQLI_ASSOC)) {
     echo "<tr><td>";
     echo $row['title'];
     echo "</td><td>";
@@ -65,7 +65,7 @@ while ($row = mysqli_fetch_assoc($query)) {
 echo "</table>";
 // Free the resources associated with the result set
 // This is done automatically at the end of the script
-mysqli_free_result($query);
+
 ?>
 </body>
 </html>
