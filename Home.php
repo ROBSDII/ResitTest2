@@ -43,13 +43,28 @@
 </div>
 
 
-</body>
+
 <?php
-/**
- * Created by PhpStorm.
- * User: Robert
- * Date: 7/18/2016
- * Time: 1:58 AM
- */
+$result = mysqli_query('SELECT bugs.title, bugs.username, bugs.datePosted 
+                         FROM TABLE bugs 
+                     ORDER BY bugs.datePosted DESC 
+                        LIMIT 5') or die('Invalid query: ' . mysqli_error());
+
+echo "<table>";
+echo "<tr><th>Recent Bugs</th><th>Developer</th><th>Date Posted</th></tr>";
+//print values to screen
+while ($row = mysqli_fetch_assoc($result)) {
+    echo "<tr><td>";
+    echo $row['title'];
+    echo "</td><td>";
+    echo $row['username'];
+    echo "</td><td>";
+    echo $row['datePosted'];
+}
+echo "</table>";
+// Free the resources associated with the result set
+// This is done automatically at the end of the script
+mysqli_free_result($result);
 ?>
+</body>
 </html>
