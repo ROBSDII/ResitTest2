@@ -46,9 +46,7 @@
 
 <?php
 include('db_connect.php');
-$sqlquery = "SELECT bugs.title, bugs.username, bugs.datePosted 
-                         FROM bugs 
-                     ORDER BY bugs.datePosted DESC";
+$sqlquery = "SELECT bugs.title, bugs.username, bugs.datePosted FROM bugs ORDER BY bugs.datePosted DESC";
 $sqldb = mysqli_fetch_array($db, $sqlquery) or die('Invalid query');
 echo "<table>";
 echo "<tr><th>Recent Bugs</th><th>Developer</th><th>Date Posted</th></tr>";
@@ -58,7 +56,7 @@ while ($row = mysqli_fetch_array($sqlquery, MYSQLI_ASSOC)) {
     echo $row['title'];
     echo "</td><td>";
     echo $row['username'];
-    echo "</td><td>";
+    echo "</td></tr>";
     echo $row['datePosted'];
 }
 echo "</table>";
