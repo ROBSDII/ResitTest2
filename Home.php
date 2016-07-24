@@ -61,7 +61,7 @@ if (!$db) {
 }else{
     echo"asia";
 }
-$uniquequery = "SELECT bugs.title, bugs.username, bugs.datePosted FROM bugs ORDER BY bugs.datePosted DESC LIMIT 5";
+$uniquequery = "SELECT title, username, datePosted FROM bugs ORDER BY datePosted DESC LIMIT 5";
 $sqldb = mysqli_query($db, $uniquequery) or die('Invalid query');
 if (!$sqldb) {
     printf("Error: %s\n", mysqli_error($db));
