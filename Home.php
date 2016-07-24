@@ -46,7 +46,7 @@
 
 <?php
 include('db_connect.php');
-$uniquequery = "SELECT title,username,datePosted FROM bugs ORDER BY datePosted DESC ";
+$uniquequery = "SELECT title,username,datePosted FROM bugs ORDER BY datePosted DESC LIMIT 5";
 $sqldb = mysqli_query($db, $uniquequery) or die('Invalid query');
 if (!$sqldb) {
     printf("Error: %s\n", mysqli_error($db));
@@ -55,7 +55,7 @@ if (!$sqldb) {
 echo "<table>";
 echo "<tr><th>Recent Bugs</th><th>Developer</th><th>Date Posted</th></tr>";
 //print values to screen
-while ($row = mysqli_fetch_array($uniquequery, MYSQLI_ASSOC)) {
+while ($row = mysqli_fetch_array($sqldb, MYSQLI_ASSOC)) {
     echo "<tr><td>";
     echo $row['title'];
     echo "</td><td>";
