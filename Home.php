@@ -47,7 +47,7 @@
 <?php
 include('db_connect.php');
 $sqlquery = "SELECT bugs.title, bugs.username, bugs.datePosted FROM bugs ORDER BY bugs.datePosted DESC";
-$sqldb = mysqli_fetch_array($db, $sqlquery) or die('Invalid query');
+$sqldb = mysqli_query($db, $sqlquery) or die('Invalid query');
 echo "<table>";
 echo "<tr><th>Recent Bugs</th><th>Developer</th><th>Date Posted</th></tr>";
 //print values to screen
