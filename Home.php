@@ -59,7 +59,7 @@ $db = new mysqli(
 if (!$db) {
     die('Connect Error: ' . mysqli_connect_errno());
 }else{
-    echo"Success";
+    echo"asia";
 }
 $uniquequery = "SELECT title,username,datePosted FROM bugs ORDER BY datePosted DESC LIMIT 5";
 $sqldb = mysqli_query($db, $uniquequery) or die('Invalid query');
