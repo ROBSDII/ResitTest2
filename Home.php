@@ -50,21 +50,16 @@ session_start();
 include('db_connect.php');
 $sql = "SELECT bugs.bugTitle, bugs.datePosted FROM bugs ORDER BY bugs.datePosted DESC LIMIT 5";
 $sqldb = mysqli_query($db, $sql) or die('Invalid query');
-if (!$sqldb) {
-    printf("Error: %s\n", mysqli_error($db));
-    exit();
-}
 
 echo "<table>";
-echo "<tr><th>Recent Bugs</th><th>Developer</th><th>Date Posted</th></tr>";
+echo "<tr><th>Recent Bugs</th><th>Date Posted</th></tr>";
 //print values to screen
 while ($row = mysqli_fetch_array($sqldb, MYSQLI_ASSOC)) {
     echo "<tr><td>";
-    echo $row['title'];
+    echo $row['bugTitle'];
     echo "</td><td>";
-    echo $row['username'];
-    echo "</td></tr>";
     echo $row['datePosted'];
+    echo "</td></tr>";
 }
 echo "</table>";
 // Free the resources associated with the result set
