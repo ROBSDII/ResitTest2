@@ -48,7 +48,7 @@
 session_start();
 
 include('db_connect.php');
-$sql = "SELECT bugs_title, bugs_username, bugs_datePosted FROM bugs ORDER BY bugs_datePosted DESC LIMIT 5";
+$sql = "SELECT bugs.bugTitle, bugs.datePosted FROM bugs ORDER BY bugs.datePosted DESC LIMIT 5";
 $sqldb = mysqli_query($db, $sql) or die('Invalid query');
 if (!$sqldb) {
     printf("Error: %s\n", mysqli_error($db));
