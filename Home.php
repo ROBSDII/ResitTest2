@@ -1,3 +1,16 @@
+<?php
+
+session_start();
+
+include('db_connect.php');
+$sql = "SELECT bugs_title, bugs_username, bugs_datePosted FROM bugs ORDER BY bugs_datePosted DESC LIMIT 5";
+$sqldb = mysqli_query($db, $sql) or die('Invalid query');
+if (!$sqldb) {
+    printf("Error: %s\n", mysqli_error($db));
+    exit();
+}
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -44,17 +57,8 @@
 
 
 
+
 <?php
-
-
-include('db_connect.php');
-session_start();
-$uniquequery = "SELECT bugs.title, bugs.username, bugs.datePosted FROM bugs ORDER BY bugs.datePosted DESC LIMIT 5";
-$sqldb = mysqli_query($db, $uniquequery) or die('Invalid query');
-if (!$sqldb) {
-    printf("Error: %s\n", mysqli_error($db));
-    exit();
-}
 echo "<table>";
 echo "<tr><th>Recent Bugs</th><th>Developer</th><th>Date Posted</th></tr>";
 //print values to screen
