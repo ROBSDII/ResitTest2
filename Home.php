@@ -45,25 +45,11 @@
 
 
 <?php
-session_start();
-$db = new mysqli(
-//Azure link
-    "us-cdbr-azure-west-c.cloudapp.net",
-    //Azure Username
-    "b790e3d6643f83",
-    //Azure Password
-    "ad68dd37",
-    //Azure Database name
-    "1313768data"
-);
-// test if connection was established, and print any errors
-if (!$db) {
-    die('Connect Error: ' . mysqli_connect_errno());
-}else{
-    echo"asia";
-}
 
-$uniquequery = "SELECT bug_title, bug_username, bug_datePosted FROM bugs ORDER BY bug_datePosted DESC LIMIT 5";
+
+include('db_connect.php');
+session_start();
+$uniquequery = "SELECT bugs.title, bugs.username, bugs.datePosted FROM bugs ORDER BY bugs.datePosted DESC LIMIT 5";
 $sqldb = mysqli_query($db, $uniquequery) or die('Invalid query');
 if (!$sqldb) {
     printf("Error: %s\n", mysqli_error($db));
