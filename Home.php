@@ -45,6 +45,7 @@
 
 
 <?php
+session_start();
 $db = new mysqli(
 //Azure link
     "us-cdbr-azure-west-c.cloudapp.net",
@@ -61,7 +62,8 @@ if (!$db) {
 }else{
     echo"asia";
 }
-$uniquequery = "SELECT title, username, datePosted FROM bugs ORDER BY datePosted DESC LIMIT 5";
+
+$uniquequery = "SELECT bug_title, bug_username, bug_datePosted FROM bugs ORDER BY bug_datePosted DESC LIMIT 5";
 $sqldb = mysqli_query($db, $uniquequery) or die('Invalid query');
 if (!$sqldb) {
     printf("Error: %s\n", mysqli_error($db));
