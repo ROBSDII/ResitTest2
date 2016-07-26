@@ -35,6 +35,28 @@
     </div>
 
 </nav>
+    <div class="container padding-top-40">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                Registration
+            </div>
+            <div class="panel-body">
+                <form>
+                    <label for="Full Name" class="control-label">Name:</label>
+                    <div class="row">
+                        <div>
+                            <div class="col-md-3">
+                                <input type="text" class="form-control" id="firstName" placeholder="Full Name" />
+                            </div>
+                            <div class="col-md-3">
+                                <input type="text" class="form-control" id="Username" placeholder="Username" />
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
 </body>
 <?php
 /**
