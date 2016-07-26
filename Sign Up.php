@@ -16,7 +16,7 @@ if (empty($_POST)===false){
     $password=$_POST['password'];
 
     if(empty($name)===true||empty($username)===true||empty($country)===true||empty($password)===true) {
-        $errors[] = 'Name,Username,country of origin, and a password is required';
+        $errors[] = 'Name,Username,country of origin, and a password is required'or die('Invalid query');
     }else{
 
     }
