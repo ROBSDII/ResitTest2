@@ -36,7 +36,7 @@
 
 </nav>
     <div class="container padding-top-40">
-        <div class="panel panel-default col-md-6">
+        <div class="panel panel-default col-md-5">
             <div class="panel-heading">
                 Registration
             </div>
