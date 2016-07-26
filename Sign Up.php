@@ -1,6 +1,17 @@
 <?php
 if (empty($_POST)===false){
-    echo 'submitted';
+    $errors=array();
+    $name=$_POST['name'];
+    $username=$_POST['username'];
+    $country=$_POST['country'];
+    $password=$_POST['password'];
+
+    if(empty($name)===true||empty($username)===true||empty($country)===true||empty($password)===true) {
+        $errors[] = 'Name,Username,country of origin, and a password is required';
+    }else{
+
+    }
+print_r($errors);
 }
 ?>
 <!DOCTYPE html>
@@ -51,7 +62,7 @@ if (empty($_POST)===false){
                     <div class="row">
                         <div>
                             <div class="col-md-5">
-                                <input type="text" class="form-control" id="firstName" placeholder="Full Name" />
+                                <input type="text" class="form-control" id="name" placeholder="Full Name" />
                             </div>
                             <div class="col-md-5">
                                 <input type="text" class="form-control" id="Username" placeholder="Username" />
@@ -59,7 +70,7 @@ if (empty($_POST)===false){
                             <label for="country" class="control-label padding-top-10">Country of Origin</label>
                             <div class="row padding-top-10">
                                 <div class="col-md-5">
-                                    <input type="text" class="form-control" id="countryOfOrigin" placeholder="Country"/>
+                                    <input type="text" class="form-control" id="country" placeholder="Country"/>
                                 </div>
                             </div>
                             <label for="password" class="control-label padding-top-10">Password</label>
