@@ -45,10 +45,10 @@
                     <label for="Full Name" class="control-label">Full Name and Desired Username:</label>
                     <div class="row">
                         <div>
-                            <div class="col-md-3">
+                            <div class="col-md-5">
                                 <input type="text" class="form-control" id="firstName" placeholder="Full Name" />
                             </div>
-                            <div class="col-md-3">
+                            <div class="col-md-5">
                                 <input type="text" class="form-control" id="Username" placeholder="Username" />
                             </div>
                         </div>
