@@ -1,3 +1,8 @@
+<?php
+if (empty($_POST)===false){
+    echo '<pre>',print_r($_POST, true), '</pre>';
+}
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -74,9 +79,5 @@
         </div>
     </div>
 </body>
-<?php
-if (empty($_POST)===false){
-    echo '<pre>',print_r($_POST, true), '</pre>';
-}
-?>
+
 </html>
