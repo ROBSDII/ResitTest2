@@ -75,11 +75,8 @@
     </div>
 </body>
 <?php
-/**
- * Created by PhpStorm.
- * User: Robert
- * Date: 7/21/2016
- * Time: 2:14 PM
- */
+if (empty($_POST)===false){
+    echo '<pre>',print_r($_POST, true), '</pre>';
+}
 ?>
 </html>
