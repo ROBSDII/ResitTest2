@@ -57,6 +57,15 @@
                                     <input type="text" class="form-control" id="countryOfOrigin" placeholder="Country"/>
                                 </div>
                             </div>
+                            <label for="password" class="control-label padding-top-10">Password</label>
+                            <div class="row padding-top-10">
+                                <div class="col-md-5">
+                                    <input type="text" class="form-control" id="password" placeholder="Enter Password"/>
+                                </div>
+                                <div class="col-md-5">
+                                    <input type="text" class="form-control" id="password" placeholder="Re-Enter Password"/>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </form>
