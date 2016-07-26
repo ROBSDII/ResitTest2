@@ -1,4 +1,13 @@
 <?php
+function debug_to_console( $data ) {
+
+    if ( is_array( $data ) )
+        $output = "<script>console.log( 'Debug Objects: " . implode( ',', $data) . "' );</script>";
+    else
+        $output = "<script>console.log( 'Debug Objects: " . $data . "' );</script>";
+
+    echo $output;
+}
 if (empty($_POST)===false){
     $errors=array();
     $name=$_POST['name'];
@@ -11,8 +20,10 @@ if (empty($_POST)===false){
     }else{
 
     }
-print_r($errors);
+    debug_to_console( "Test" );
+//print_r($errors);
 }
+
 ?>
 <!DOCTYPE html>
 <html>
