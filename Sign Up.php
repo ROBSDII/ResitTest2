@@ -35,7 +35,7 @@
     </div>
 
 </nav>
-    <div class="container padding-top-40">
+    <div class="container padding-top-40 padding-left-100">
         <div class="panel panel-default col-md-5">
             <div class="panel-heading">
                 Registration
