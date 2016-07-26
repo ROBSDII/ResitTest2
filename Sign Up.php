@@ -51,6 +51,12 @@
                             <div class="col-md-5">
                                 <input type="text" class="form-control" id="Username" placeholder="Username" />
                             </div>
+                            <label for="country" class="control-label padding-top-10">Country of Origin</label>
+                            <div class="row padding-top-10">
+                                <div class="col-md-5">
+                                    <input type="text" class="form-control" id="countryOfOrigin" placeholder="Country of Origin"/>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </form>
