@@ -37,12 +37,12 @@
 </nav>
     <div class="container padding-top-40">
         <div class="panel panel-default">
-            <div class="panel-heading">
+            <div class="panel-heading col-md-5">
                 Registration
             </div>
             <div class="panel-body">
                 <form>
-                    <label for="Full Name" class="control-label">Name:</label>
+                    <label for="Full Name" class="control-label">Full Name and Desired Username:</label>
                     <div class="row">
                         <div>
                             <div class="col-md-3">
