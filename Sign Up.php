@@ -41,7 +41,7 @@
                 Registration
             </div>
             <div class="panel-body">
-                <form>
+                <form action="" method="post">
                     <label for="Full Name" class="control-label">Full Name and Desired Username:</label>
                     <div class="row">
                         <div>
@@ -66,6 +66,7 @@
                                     <input type="text" class="form-control" id="password" placeholder="Re-Enter Password"/>
                                 </div>
                             </div>
+                                <input type="submit" value="Submit"/>
                         </div>
                     </div>
                 </form>
