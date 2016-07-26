@@ -1,30 +1,4 @@
-<?php
-function debug_to_console( $data ) {
 
-    if ( is_array( $data ) )
-        $output = "<script>console.log( 'Debug Objects: " . implode( ',', $data) . "' );</script>";
-    else
-        $output = "<script>console.log( 'Debug Objects: " . $data . "' );</script>";
-
-    echo $output;
-}
-if (empty($_POST)===false){
-    $errors=array();
-    $name=$_POST['name'];
-    $username=$_POST['username'];
-    $country=$_POST['country'];
-    $password=$_POST['password'];
-
-    if(empty($name)===true||empty($username)===true||empty($country)===true||empty($password)===true) {
-        $errors[] = 'Name,Username,country of origin, and a password is required'or die('Invalid query');
-    }else{
-
-    }
-    debug_to_console( "Test" );
-//print_r($errors);
-}
-
-?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -101,5 +75,32 @@ if (empty($_POST)===false){
         </div>
     </div>
 </body>
+<?php
+function debug_to_console( $data ) {
+
+    if ( is_array( $data ) )
+        $output = "<script>console.log( 'Debug Objects: " . implode( ',', $data) . "' );</script>";
+    else
+        $output = "<script>console.log( 'Debug Objects: " . $data . "' );</script>";
+
+    echo $output;
+}
+if (empty($_POST)===false){
+    $errors=array();
+    $name=$_POST['name'];
+    $username=$_POST['username'];
+    $country=$_POST['country'];
+    $password=$_POST['password'];
+
+    if(empty($name)===true||empty($username)===true||empty($country)===true||empty($password)===true) {
+        $errors[] = 'Name,Username,country of origin, and a password is required'or die('Invalid query');
+    }else{
+
+    }
+    debug_to_console( "Test" );
+    print_r($errors);
+}
+
+?>
 
 </html>
