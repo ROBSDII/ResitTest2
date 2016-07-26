@@ -1,4 +1,34 @@
+<?php
+function debug_to_console( $data ) {
 
+    if ( is_array( $data ) )
+        $output = "<script>console.log( 'Debug Objects: " . implode( ',', $data) . "' );</script>";
+    else
+        $output = "<script>console.log( 'Debug Objects: " . $data . "' );</script>";
+
+    echo $output;
+}
+if (empty($_POST)===false){
+    $errors=array();
+    $name=$_POST['name'];
+    $username=$_POST['username'];
+    $country=$_POST['country'];
+    $password=$_POST['password'];
+
+    if(empty($name)===true||empty($username)===true||empty($country)===true||empty($password)===true) {
+        $errors[] = 'Name,Username,country of origin, and a password is required'or die('Invalid query');
+    }else{
+        if (ctype_alpha($name)===false){
+            $errors[]='Name must only contain letters';
+
+        }
+        debug_to_console( "Test" );
+        print_r($errors);
+    }
+
+}
+
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -42,6 +72,15 @@
                 Registration
             </div>
             <div class="panel-body">
+                <?php
+                if(empty($errors)===false){
+                  echo '<ul>';
+                    foreach($errors as $error){
+                        echo '<li>,$error,</li>';
+                    }
+                    echo '<ul>';
+                }
+                ?>
                 <form action="" method="post">
                     <label for="Full Name" class="control-label">Full Name and Desired Username:</label>
                     <div class="row">
@@ -75,32 +114,5 @@
         </div>
     </div>
 </body>
-<?php
-function debug_to_console( $data ) {
-
-    if ( is_array( $data ) )
-        $output = "<script>console.log( 'Debug Objects: " . implode( ',', $data) . "' );</script>";
-    else
-        $output = "<script>console.log( 'Debug Objects: " . $data . "' );</script>";
-
-    echo $output;
-}
-if (empty($_POST)===false){
-    $errors=array();
-    $name=$_POST['name'];
-    $username=$_POST['username'];
-    $country=$_POST['country'];
-    $password=$_POST['password'];
-
-    if(empty($name)===true||empty($username)===true||empty($country)===true||empty($password)===true) {
-        $errors[] = 'Name,Username,country of origin, and a password is required'or die('Invalid query');
-    }else{
-
-    }
-    debug_to_console( "Test" );
-    print_r($errors);
-}
-
-?>
 
 </html>
