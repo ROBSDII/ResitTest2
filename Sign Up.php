@@ -1,32 +1,6 @@
 <?php
-function debug_to_console( $data ) {
+include ("db_connect.php");
 
-    if ( is_array( $data ) )
-        $output = "<script>console.log( 'Debug Objects: " . implode( ',', $data) . "' );</script>";
-    else
-        $output = "<script>console.log( 'Debug Objects: " . $data . "' );</script>";
-
-    echo $output;
-}
-if (empty($_POST)===false){
-    $errors=array();
-    $name=$_POST['name'];
-    $username=$_POST['username'];
-    $country=$_POST['country'];
-    $password=$_POST['password'];
-
-    if(empty($name)===true||empty($username)===true||empty($country)===true||empty($password)===true) {
-        $errors[] = 'Name,Username,country of origin, and a password is required'or die('Invalid query');
-    }else{
-        if (ctype_alpha($name)===false){
-            $errors[]='Name must only contain letters';
-
-        }
-        debug_to_console( "Test" );
-        print_r($errors);
-    }
-
-}
 
 ?>
 <!DOCTYPE html>
@@ -72,16 +46,7 @@ if (empty($_POST)===false){
                 Registration
             </div>
             <div class="panel-body">
-                <?php
-                if(empty($errors)===false){
-                  echo '<ul>';
-                    foreach($errors as $error){
-                        echo '<li>,$error,</li>';
-                    }
-                    echo '<ul>';
-                }
-                ?>
-                <form action="" method="post">
+                <form action="signUpData.php" method="post" name="developers">
                     <label for="Full Name" class="control-label">Full Name and Desired Username:</label>
                     <div class="row">
                         <div>
@@ -89,7 +54,7 @@ if (empty($_POST)===false){
                                 <input type="text" class="form-control" id="name" placeholder="Full Name" />
                             </div>
                             <div class="col-md-5">
-                                <input type="text" class="form-control" id="Username" placeholder="Username" />
+                                <input type="text" class="form-control" id="username" placeholder="Username" />
                             </div>
                             <label for="country" class="control-label padding-top-10">Country of Origin</label>
                             <div class="row padding-top-10">
@@ -103,7 +68,7 @@ if (empty($_POST)===false){
                                     <input type="text" class="form-control" id="password" placeholder="Enter Password"/>
                                 </div>
                                 <div class="col-md-5">
-                                    <input type="text" class="form-control" id="password" placeholder="Re-Enter Password"/>
+                                    <input type="text" class="form-control" id="rePassword" placeholder="Re-Enter Password"/>
                                 </div>
                             </div>
                                 <input type="submit" value="Submit"/>
