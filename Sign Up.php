@@ -68,12 +68,13 @@
 </html>
 <?php
 include('db_connect.php');
+echo "<script>alert('Please fill username')</script>";
 if(isset($_POST['submit'])){
     $name=$_POST['name'];
     $country=$_POST['country'];
     $username=$_POST['username'];
     $password=$_POST['password'];
-    echo "<script>alert('Please fill username')</script>";
+
 if($username==''){
     echo "<script>alert('Please fill username')</script>";
     exit();
