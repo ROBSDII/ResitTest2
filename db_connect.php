@@ -15,6 +15,6 @@ $db = new mysqli($dbserver, $dbusername, $dbpassword, $dbname);
 if (!$db) {
     die('Connect Error: ' . mysqli_connect_errno());
 }else{
-    echo"Success";
+    echo"PLease work";
 }
 ?>
