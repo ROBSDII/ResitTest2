@@ -38,7 +38,7 @@ include ("db_connect.php");
                 Registration
             </div>
             <div class="panel-body">
-                <form action="signUpData.php" method="post" name="developers">
+                <form action="Sign Up.php" method="post" name="developers">
                     <label for="Full Name" class="control-label">Full Name and Desired Username:</label>
                     <div class="row">
                         <div>
@@ -57,7 +57,7 @@ include ("db_connect.php");
                             <label for="password" class="control-label padding-top-10">Password</label>
                             <div class="row padding-top-10">
                                 <div class="col-md-5">
-                                    <input type="text" class="form-control" id="password" value="" placeholder="Enter Password"/>
+                                    <input type="password" class="form-control" id="password" value="" placeholder="Enter Password"/>
                                 </div>
                             </div>
                                 <input type="submit" value="Submit"/>
@@ -70,3 +70,10 @@ include ("db_connect.php");
 </body>
 
 </html>
+<?php
+if(isset($_POST['submit']))
+    echo $name=$_POST['name'];
+    echo $country=$_POST['country'];
+    echo$username=$_POST['username'];
+    echo $password=$_POST['password'];
+?>
