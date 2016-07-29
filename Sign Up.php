@@ -71,12 +71,28 @@ include ("db_connect.php");
 
 </html>
 <?php
-if(isset($_POST['submit']))
+include('db_connect.php');
+if(isset($_POST['submit'])){
     echo $name=$_POST['name'];
     echo $country=$_POST['country'];
     echo$username=$_POST['username'];
     echo $password=$_POST['password'];
+
 if($username==''){
-    echo "<script>alert('Please enter your username')</script>";
+    echo "<script>alert('Please fill username')</script>";
+    exit();
+    }
+    if($name==''){
+        echo "<script>alert('Please fill all fields')</script>";
+        exit();
+    }
+    if($country==''){
+        echo "<script>alert('Please fill all fields')</script>";
+        exit();
+    }
+    if($password==''){
+        echo "<script>alert('Please fill all fields')</script>";
+        exit();
+    }
 }
 ?>
