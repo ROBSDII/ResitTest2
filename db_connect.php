@@ -1,16 +1,16 @@
 
 
 <?php
-$db = new mysqli(
+
 //Azure link
-    "us-cdbr-azure-west-c.cloudapp.net",
+    $dbserver="us-cdbr-azure-west-c.cloudapp.net";
     //Azure Username
-    "b790e3d6643f83",
+    $dbusername="b790e3d6643f83";
     //Azure Password
-    "ad68dd37",
+    $dbpassword="ad68dd37";
     //Azure Database name
-    "1313768data"
-);
+    $dbname="1313768data";
+$db = new mysqli($dbserver, $dbusername, $dbpassword, $dbname);
 // test if connection was established, and print any errors
 if (!$db) {
     die('Connect Error: ' . mysqli_connect_errno());
