@@ -92,6 +92,7 @@ if(isset($_POST['submit'])){
         //exit();
     }
 }
+echo "blue"
 ?>
 </body>
 
