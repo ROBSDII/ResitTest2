@@ -39,21 +39,21 @@
                     <div class="row">
                         <div>
                             <div class="col-md-5">
-                                <input type="text" class="form-control" id="name" value="" placeholder="Full Name" />
+                                <input type="text" class="form-control" name="name"  placeholder="Full Name" />
                             </div>
                             <div class="col-md-5">
-                                <input type="text" class="form-control" id="username" value="" placeholder="Username" />
+                                <input type="text" class="form-control" name="username"  placeholder="Username" />
                             </div>
                             <label for="country" class="control-label padding-top-10">Country of Origin</label>
                             <div class="row padding-top-10">
                                 <div class="col-md-5">
-                                    <input type="text" class="form-control" id="country" value="" placeholder="Country"/>
+                                    <input type="text" class="form-control" name="country"  placeholder="Country"/>
                                 </div>
                             </div>
                             <label for="password" class="control-label padding-top-10">Password</label>
                             <div class="row padding-top-10">
                                 <div class="col-md-5">
-                                    <input type="password" class="form-control" id="password" value="" placeholder="Enter Password"/>
+                                    <input type="password" class="form-control" name="password"  placeholder="Enter Password"/>
                                 </div>
                             </div>
                                 <input type="submit" value="Submit"/>
