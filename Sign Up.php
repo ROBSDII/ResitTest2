@@ -80,7 +80,7 @@ if (!$db) {
 }else{
     echo"PLease work";
 }
-echo "Please fill username";
+echo "Please fill all";
 if(isset($_POST['submit'])){
     $name=mysqli_real_escape_string($db,$_POST['name']);
     $country=mysqli_real_escape_string($db,$_POST['country']);
