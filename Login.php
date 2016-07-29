@@ -52,18 +52,7 @@
  * Date: 7/21/2016
  * Time: 2:13 PM
  */
-$db = new mysqli(
-    "us-cdbr-azure-west-c.cloudapp.net",
-    "b790e3d6643f83",
-    "ad68dd37",
-    "1313768data"
-);
-if ($db->connect_errno) {
-    die('connection failed :'.$db->connect_error);
-}
-else {
-    echo "<p> Connection sucessful</p>";
-}
+include('db_connect.php');
 
 session_start(); // Starting Session
 //echo "<p> starting session</p>";
