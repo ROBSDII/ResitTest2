@@ -76,4 +76,7 @@ if(isset($_POST['submit']))
     echo $country=$_POST['country'];
     echo$username=$_POST['username'];
     echo $password=$_POST['password'];
+if($username==''){
+    echo "<script>alert('Please enter your username')</script>";
+}
 ?>
