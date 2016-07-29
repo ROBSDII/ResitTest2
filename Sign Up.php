@@ -39,21 +39,21 @@
                     <div class="row">
                         <div>
                             <div class="col-md-5">
-                                <input type="text"  name="name"  placeholder="Full Name" />
+                                <input type="text" class="form-control" name="name"  placeholder="Full Name" />
                             </div>
                             <div class="col-md-5">
-                                <input type="text" name="username"  placeholder="Username" />
+                                <input type="text" class="form-control" name="username"  placeholder="Username" />
                             </div>
                             <label for="country" class="control-label padding-top-10">Country of Origin</label>
                             <div class="row padding-top-10">
                                 <div class="col-md-5">
-                                    <input type="text" name="country"  placeholder="Country"/>
+                                    <input type="text" class="form-control" name="country"  placeholder="Country"/>
                                 </div>
                             </div>
                             <label for="password" class="control-label padding-top-10">Password</label>
                             <div class="row padding-top-10">
                                 <div class="col-md-5">
-                                    <input type="password"  name="password"  placeholder="Enter Password"/>
+                                    <input type="password" class="form-control" name="password"  placeholder="Enter Password"/>
                                 </div>
                             </div>
                                 <input type="submit" value="submit"/>
@@ -82,7 +82,7 @@ if (!$db) {
 }
 echo "Hello";
 if(isset($_POST['submit'])){
-   echo $name=mysqli_real_escape_string($db,$_POST['name']);
+   echo $name=['name'];
    echo $country=mysqli_real_escape_string($db,$_POST['country']);
     echo $username=mysqli_real_escape_string($db,$_POST['username']);
     echo $password=mysqli_real_escape_string($db,$_POST['password']);
