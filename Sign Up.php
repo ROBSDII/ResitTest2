@@ -88,7 +88,7 @@ if(isset($_POST['submit'])){
     $password=mysqli_real_escape_string($db,$_POST['password']);
 
     if($username=="" OR $name=="" OR $country=="" OR $password==""){
-        echo "<script>alert('Please fill username')</script>";
+        echo "Please fill username";
         //exit();
     }
 }
