@@ -34,7 +34,7 @@
                 Registration
             </div>
             <div class="panel-body">
-                <form action="" method="POST" name="developers">
+                <form action="" method="POST" >
                     <label for="Full Name" class="control-label">Full Name and Desired Username:</label>
                     <div class="row">
                         <div>
@@ -59,39 +59,40 @@
                                 <input type="submit" value="Submit"/>
                         </div>
                     </div>
-                    <?php
-                    //Azure link
-                    $dbserver="us-cdbr-azure-west-c.cloudapp.net";
-                    //Azure Username
-                    $dbusername="b790e3d6643f83";
-                    //Azure Password
-                    $dbpassword="ad68dd37";
-                    //Azure Database name
-                    $dbname="1313768data";
-                    $db = new mysqli($dbserver, $dbusername, $dbpassword, $dbname);
-                    // test if connection was established, and print any errors
-                    if (!$db) {
-                        die('Connect Error: ' . mysqli_connect_errno());
-                    }else{
-                        echo"PLease work";
-                    }
-                    echo "Please fill all";
-                    if(isset($_POST['submit'])){
-                        $name=mysqli_real_escape_string($db,$_POST['name']);
-                        $country=mysqli_real_escape_string($db,$_POST['country']);
-                        $username=mysqli_real_escape_string($db,$_POST['username']);
-                        $password=mysqli_real_escape_string($db,$_POST['password']);
-                        echo "Please fill username";
-                        if($username=="" OR $name=="" OR $country=="" OR $password==""){
-                            echo "Please fill username";
-                            //exit();
-                        }
-                    }
-                    ?>
+
                 </form>
             </div>
         </div>
     </div>
+<?php
+//Azure link
+$dbserver="us-cdbr-azure-west-c.cloudapp.net";
+//Azure Username
+$dbusername="b790e3d6643f83";
+//Azure Password
+$dbpassword="ad68dd37";
+//Azure Database name
+$dbname="1313768data";
+$db = new mysqli($dbserver, $dbusername, $dbpassword, $dbname);
+// test if connection was established, and print any errors
+if (!$db) {
+    die('Connect Error: ' . mysqli_connect_errno());
+}else{
+    echo"PLease work";
+}
+echo "Please fill all";
+if(isset($_POST['submit'])){
+    $name=mysqli_real_escape_string($db,$_POST['name']);
+    $country=mysqli_real_escape_string($db,$_POST['country']);
+    $username=mysqli_real_escape_string($db,$_POST['username']);
+    $password=mysqli_real_escape_string($db,$_POST['password']);
+    echo "Please fill username";
+    if($username=="" OR $name=="" OR $country=="" OR $password==""){
+        echo "Please fill username";
+        //exit();
+    }
+}
+?>
 </body>
 
 </html>
