@@ -38,7 +38,7 @@ include ("db_connect.php");
                 Registration
             </div>
             <div class="panel-body">
-                <form action="Sign Up.php" method="post" name="developers">
+                <form action="" method="POST" name="developers">
                     <label for="Full Name" class="control-label">Full Name and Desired Username:</label>
                     <div class="row">
                         <div>
@@ -73,10 +73,10 @@ include ("db_connect.php");
 <?php
 include('db_connect.php');
 if(isset($_POST['submit'])){
-    echo $name=$_POST['name'];
-    echo $country=$_POST['country'];
-    echo$username=$_POST['username'];
-    echo $password=$_POST['password'];
+    $name=$_POST['name'];
+    $country=$_POST['country'];
+    $username=$_POST['username'];
+    $password=$_POST['password'];
 
 if($username==''){
     echo "<script>alert('Please fill username')</script>";
