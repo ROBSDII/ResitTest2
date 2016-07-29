@@ -56,7 +56,7 @@
                                     <input type="password" class="form-control" name="password"  placeholder="Enter Password"/>
                                 </div>
                             </div>
-                                <input type="submit" value="Submit"/>
+                                <input type="submit" value="submit"/>
                         </div>
                     </div>
 
@@ -81,7 +81,7 @@ if (!$db) {
     echo"PLease work";
 }
 echo "Hello";
-if(isset($_POST['Submit'])){
+if(isset($_POST['submit'])){
    echo $name=mysqli_real_escape_string($db,$_POST['name']);
    echo $country=mysqli_real_escape_string($db,$_POST['country']);
     echo $username=mysqli_real_escape_string($db,$_POST['username']);
