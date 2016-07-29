@@ -81,7 +81,7 @@
                         $country=mysqli_real_escape_string($db,$_POST['country']);
                         $username=mysqli_real_escape_string($db,$_POST['username']);
                         $password=mysqli_real_escape_string($db,$_POST['password']);
-
+                        echo "Please fill username";
                         if($username=="" OR $name=="" OR $country=="" OR $password==""){
                             echo "Please fill username";
                             //exit();
