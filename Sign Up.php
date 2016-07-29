@@ -75,7 +75,7 @@ if(isset($_POST['submit'])){
     $username=$_POST['username'];
     $password=$_POST['password'];
 
-if($username=='' OR $name=='' OR $country=='' OR $password==''){
+if($username=="" OR $name=="" OR $country=="" OR $password==""){
     echo "<script>alert('Please fill username')</script>";
     exit();
     }
