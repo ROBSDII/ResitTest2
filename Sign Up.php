@@ -68,7 +68,7 @@
 </html>
 <?php
 include('db_connect.php');
-//echo "<script>alert('Please fill username')</script>";
+echo "Please fill username";
 if(isset($_POST['submit'])){
     $name=$_POST['name'];
     $country=$_POST['country'];
@@ -77,7 +77,7 @@ if(isset($_POST['submit'])){
 
 if($username=="" OR $name=="" OR $country=="" OR $password==""){
     echo "<script>alert('Please fill username')</script>";
-    exit();
+    //exit();
     }
 }
 ?>
