@@ -82,10 +82,10 @@ if (!$db) {
 }
 echo "Hello";
 if(isset($_POST['submit'])){
-   echo $name=mysqli_real_escape_string($db,$_POST['name']);
-   echo $country=mysqli_real_escape_string($db,$_POST['country']);
-    echo $username=mysqli_real_escape_string($db,$_POST['username']);
-    echo $password=mysqli_real_escape_string($db,$_POST['password']);
+   echo $name;//=mysqli_real_escape_string($db,$_POST['name']);
+   echo $country;//=mysqli_real_escape_string($db,$_POST['country']);
+    echo $username;//=mysqli_real_escape_string($db,$_POST['username']);
+    echo $password;//=mysqli_real_escape_string($db,$_POST['password']);
     echo "Please fill username";
     if($username=="" OR $name=="" OR $country=="" OR $password==""){
         echo"Please fill username";
