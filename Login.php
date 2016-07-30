@@ -21,7 +21,7 @@
             <li><a href="#">Page 3</a></li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
-            <li><a href="signUpData.php.php"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+            <li><a href="registration.php"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
             <li><a href="Login.php"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
             <form class="navbar-form" role="search">
                 <div class="input-group">
