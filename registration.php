@@ -66,7 +66,7 @@ $dbpassword="ad68dd37";
 //Azure Database name
 $dbname="1313768data";
 
-$conn = new mysqli($dbserver, $dbusername, $dbpassword, $dbname);
+$db = new mysqli($dbserver, $dbusername, $dbpassword, $dbname);
 if ($db->connect_error){
     die("Connection failed: " . $db->connect_error);
 }
@@ -89,7 +89,7 @@ VALUES('$name','$username','$country','$password')";
         }
     }
 }
-$conn->close();
+$db->close();
 ?>
 
 <ul>
