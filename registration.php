@@ -76,7 +76,7 @@ if(isset($_POST['submit'])) {
     $country = mysqli_real_escape_string($db, $_POST['country']);
     $password = mysqli_real_escape_string($db, $_POST['password']);
 
-    if ($name == "" OR $password == "" OR $country =="" OR $username=="") {
+    if ($name == "" OR $password == "") {
         echo "Please fill all fields.";
     } else {
         $sqlinsert = "INSERT INTO developers(developers.name, developers.username, developers.country, developers.password)
