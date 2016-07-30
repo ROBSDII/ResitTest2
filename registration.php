@@ -66,32 +66,24 @@ $dbpassword="ad68dd37";
 //Azure Database name
 $dbname="1313768data";
 
-
 $db = new mysqli($dbserver, $dbusername, $dbpassword, $dbname);
 if ($db->connect_error){
     die("Connection failed: " . $db->connect_error);
 }
-$check_username="SELECT * FROM developers WHERE developers.username='username'";
-$check=mysqli_query($check_username);
-
 if(isset($_POST['submit'])) {
     $name = mysqli_real_escape_string($db, $_POST['name']);
     $username = mysqli_real_escape_string($db, $_POST['username']);
     $country = mysqli_real_escape_string($db, $_POST['country']);
     $password = mysqli_real_escape_string($db, $_POST['password']);
 
-    if ($name == "" OR $password == "" OR $country =="" OR $username) {
+    if ($name == "" OR $password == "" OR $country =="" OR $username=="") {
         echo "Please fill all fields.";
-
-    } else if(mysqli_num_rows($check)>0) {
-        echo"Username is already chosen, please choose another";
-    }else{
-
+    } else {
         $sqlinsert = "INSERT INTO developers(developers.name, developers.username, developers.country, developers.password)
 VALUES('$name','$username','$country','$password')";
 
         if (mysqli_query($db, $sqlinsert)) {
-            echo "Registration successful";
+            echo "Records added successfully";
         } else {
             echo "Error: " . $sqlinsert . "<br>" . $db->error;
         }
