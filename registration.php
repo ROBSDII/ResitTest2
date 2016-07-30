@@ -40,10 +40,10 @@
 <br><br><br>
 
 <form action='' method="POST">
-    Unique Username:<br>
+    Full Name:<br>
     <input type="text" name="name">
     <br>
-    Surname:<br>
+    Username:<br>
     <input type="text" name="username">
     <br>
     Country:<br>
@@ -67,25 +67,25 @@ $dbpassword="ad68dd37";
 $dbname="1313768data";
 
 $conn = new mysqli($dbserver, $dbusername, $dbpassword, $dbname);
-if ($conn->connect_error){
-    die("Connection failed: " . $conn->connect_error);
+if ($db->connect_error){
+    die("Connection failed: " . $db->connect_error);
 }
 if(isset($_POST['submit'])) {
-    $name = mysqli_real_escape_string($conn, $_POST['name']);
-    $username = mysqli_real_escape_string($conn, $_POST['username']);
-    $country = mysqli_real_escape_string($conn, $_POST['country']);
-    $password = mysqli_real_escape_string($conn, $_POST['password']);
+    $name = mysqli_real_escape_string($db, $_POST['name']);
+    $username = mysqli_real_escape_string($db, $_POST['username']);
+    $country = mysqli_real_escape_string($db, $_POST['country']);
+    $password = mysqli_real_escape_string($db, $_POST['password']);
 
     if ($name == "" OR $password == "") {
         echo "Password or Username is blank. Please enter.";
     } else {
-        $sql = "INSERT INTO developers(developers.name, developers.username, developers.country, developers.password)
+        $sqlinsert = "INSERT INTO developers(developers.name, developers.username, developers.country, developers.password)
 VALUES('$name','$username','$country','$password')";
 
-        if (mysqli_query($conn, $sql)) {
+        if (mysqli_query($db, $sqlinsert)) {
             echo "Records added successfully";
         } else {
-            echo "Error: " . $sql . "<br>" . $conn->error;
+            echo "Error: " . $sqlinsert . "<br>" . $db->error;
         }
     }
 }
