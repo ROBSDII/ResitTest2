@@ -92,10 +92,6 @@ VALUES('$name','$username','$country','$password')";
 $db->close();
 ?>
 
-<ul>
-    <li><a href="http://bigbugfinder.azurewebsites.net/Home.php">Cancel</a></li>
-</ul>
-<br><br><br><br><br><br><br><br>
 </body>
 </html>
 
