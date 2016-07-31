@@ -78,12 +78,12 @@ if(isset($_POST['submit'])) {
     $country = mysqli_real_escape_string($db, $_POST['country']);
     $password = mysqli_real_escape_string($db, $_POST['password']);
 
-    $check_username="SELECT * FROM developers WHERE developers.username='$username'";
-    $check=mysqli_query($db,$check_username);
+    $check_username="SELECT * FROM developers WHERE developers.username='username'";
+    $check=mysqli_real_escape_string($db,$check_username);
 
     if ($name == "" OR $password == "") {
         echo "Please fill all fields.";
-    } else if (mysqli_num_rows($check_username)>0) {
+    } else if (mysqli_query($db,$check_username)>0) {
         echo "Please choose a different username";
     }else{
         $sqlinsert = "INSERT INTO developers(developers.name, developers.username, developers.country, developers.password)
