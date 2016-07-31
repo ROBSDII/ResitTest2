@@ -79,7 +79,16 @@ if(isset($_POST['submit'])) {
     $password = mysqli_real_escape_string($db, $_POST['password']);
 
 
-        if ($name == "" OR $password == "") {
+        $query = "SELECT * FROM developers WHERE username='".$username."'";
+        $result = $db->query($query);
+    if(isset($result)){
+        $rows = $result->fetch_array();
+
+//  while () {
+     if (count($rows)> 0) {
+        echo "Username already taken, please choose another";
+        }
+    } else if ($name == "" OR $password == "") {
         echo "Please fill all fields.";
     } else {
         $sqlinsert = "INSERT INTO developers(developers.name, developers.username, developers.country, developers.password)
