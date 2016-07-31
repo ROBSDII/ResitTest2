@@ -81,8 +81,15 @@ if(isset($_POST['submit'])) {
     $check_username="SELECT * FROM developers WHERE developers.username";
     $check=mysqli_real_escape_string($db,$check_username);
 
-if (mysqli_query($db,$check_username)===$username) {
-    echo "Please choose a different username";
+$query = "SELECT * FROM developers WHERE username='".$username."'";
+$result = $db->query($query);
+if(isset($result)){
+$rows = $result->fetch_array();
+
+//  while () {
+    if (count($rows)> 0) {
+     echo "no results";
+    }
 }
     if ($name == "" OR $password == "") {
         echo "Please fill all fields.";
