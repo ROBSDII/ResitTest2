@@ -22,7 +22,7 @@
             <li><a href="#">Page 3</a></li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
-            <li><a href="signUpData.php"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+            <li><a href=""><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
             <li><a href="Login.php"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
             <form class="navbar-form" role="search">
                 <div class="input-group">
@@ -78,26 +78,24 @@ if(isset($_POST['submit'])) {
     $country = mysqli_real_escape_string($db, $_POST['country']);
     $password = mysqli_real_escape_string($db, $_POST['password']);
 
-    $check_username="SELECT * FROM developers WHERE developers.username";
-    $check=mysqli_real_escape_string($db,$check_username);
 
-$query = "SELECT * FROM developers WHERE username='".$username."'";
-$result = $db->query($query);
-if(isset($result)){
-$rows = $result->fetch_array();
+        $query = "SELECT * FROM developers WHERE username='".$username."'";
+        $result = $db->query($query);
+    if(isset($result)){
+        $rows = $result->fetch_array();
 
 //  while () {
-    if (count($rows)> 0) {
-     echo "no results";
-    }
-} else if ($name == "" OR $password == "") {
+     if (count($rows)> 0) {
+        echo "Username already taken, please choose another";
+        }
+    } else if ($name == "" OR $password == "") {
         echo "Please fill all fields.";
     } else {
         $sqlinsert = "INSERT INTO developers(developers.name, developers.username, developers.country, developers.password)
 VALUES('$name','$username','$country','$password')";
 
         if (mysqli_query($db, $sqlinsert)) {
-            echo "Records added successfully";
+            echo "Registered";
         } else {
             echo "Error: " . $sqlinsert . "<br>" . $db->error;
         }
