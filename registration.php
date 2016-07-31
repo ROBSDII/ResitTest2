@@ -88,7 +88,8 @@ if(isset($_POST['submit'])) {
      if (count($rows)> 0) {
         echo "Username already taken, please choose another";
         }
-    } else if ($name == "" OR $password == "") {
+    }
+    if ($name == "" OR $password == "") {
         echo "Please fill all fields.";
     } else {
         $sqlinsert = "INSERT INTO developers(developers.name, developers.username, developers.country, developers.password)
