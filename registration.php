@@ -87,7 +87,7 @@ if(isset($_POST['submit'])) {
 //  while () {
      if (count($rows)> 0) {
         echo "Username already taken, please choose another";
-
+        die();
         }
     }
     if ($name == "" OR $password == "") {
