@@ -90,8 +90,7 @@ $rows = $result->fetch_array();
     if (count($rows)> 0) {
      echo "no results";
     }
-}
-    if ($name == "" OR $password == "") {
+} else if ($name == "" OR $password == "") {
         echo "Please fill all fields.";
     } else {
         $sqlinsert = "INSERT INTO developers(developers.name, developers.username, developers.country, developers.password)
