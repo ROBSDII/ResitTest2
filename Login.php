@@ -62,7 +62,7 @@ if (isset($_POST['username']) && isset($_POST['password'])) {
     if (empty($_POST['username']) || empty($_POST['password'])) {
         $error = "username or password is invalid";
         echo "<br>";
-        echo "<a href='Home.php'>" . "Click here to try again" . "</a>";
+        echo "<a href='Login.php'>" . "Click here to try again" . "</a>";
     }
 
 
