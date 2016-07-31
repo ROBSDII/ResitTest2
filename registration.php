@@ -81,11 +81,12 @@ if(isset($_POST['submit'])) {
     $check_username="SELECT * FROM developers WHERE developers.username='username'";
     $check=mysqli_real_escape_string($db,$check_username);
 
+if (mysqli_query($db,$check_username)===true) {
+    echo "Please choose a different username";
+}
     if ($name == "" OR $password == "") {
         echo "Please fill all fields.";
-    } else if (mysqli_query($db,$check_username)>0) {
-        echo "Please choose a different username";
-    }else{
+    } else {
         $sqlinsert = "INSERT INTO developers(developers.name, developers.username, developers.country, developers.password)
 VALUES('$name','$username','$country','$password')";
 
