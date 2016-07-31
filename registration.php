@@ -22,7 +22,7 @@
             <li><a href="#">Page 3</a></li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
-            <li><a href="signUpData.php.php"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+            <li><a href="signUpData.php"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
             <li><a href="Login.php"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
             <form class="navbar-form" role="search">
                 <div class="input-group">
@@ -78,10 +78,10 @@ if(isset($_POST['submit'])) {
     $country = mysqli_real_escape_string($db, $_POST['country']);
     $password = mysqli_real_escape_string($db, $_POST['password']);
 
-    $check_username="SELECT * FROM developers WHERE developers.username='username'";
+    $check_username="SELECT * FROM developers WHERE developers.username";
     $check=mysqli_real_escape_string($db,$check_username);
 
-if (mysqli_query($db,$check_username)===true) {
+if (mysqli_query($db,$check_username)===$username) {
     echo "Please choose a different username";
 }
     if ($name == "" OR $password == "") {

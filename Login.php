@@ -86,7 +86,7 @@ if (isset($_POST['username']) && isset($_POST['password'])) {
             $_SESSION['login_user'] = $username; // Initializing Session
             header("location: Home.php"); // Redirecting To Other Page
         } else {
-            $error = "Email or Password is invalid";
+            $error = "Username or Password is invalid";
 
         }
         $result->close();
