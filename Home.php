@@ -19,7 +19,7 @@
 </div>
 
 <?php
-
+echo "<td>" . '<a href="signUpData.php?paramuser='.$sql.'">'.$sql.'</a>'."</td>";
 session_start();
 
 include('db_connect.php');
@@ -31,7 +31,7 @@ echo "<tr><th>Recent Bugs</th><th>Date Posted</th></tr>";
 //print values to screen
 while ($row = mysqli_fetch_array($sqldb, MYSQLI_ASSOC)) {
     echo "<tr><td>";
-    echo $row['bugTitle'];
+    echo '<a href=signUpData.php?paramuser='.$row['bugTitle'].'">.$row.</a>';
     echo "</td><td>";
     echo $row['datePosted'];
     echo "</td></tr>";
