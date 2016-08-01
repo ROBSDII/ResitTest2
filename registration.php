@@ -32,20 +32,7 @@
 </form>
 
 <?php
-//Azure link
-$dbserver="us-cdbr-azure-west-c.cloudapp.net";
-//Azure Username
-$dbusername="b790e3d6643f83";
-//Azure Password
-$dbpassword="ad68dd37";
-//Azure Database name
-$dbname="1313768data";
-
-$db = new mysqli($dbserver, $dbusername, $dbpassword, $dbname);
-if ($db->connect_error){
-    die("Connection failed: " . $db->connect_error);
-}
-
+include('db_connect.php');
 
 if(isset($_POST['submit'])) {
     $name = mysqli_real_escape_string($db, $_POST['name']);
