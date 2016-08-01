@@ -49,7 +49,7 @@ if (isset($_POST['username']) && isset($_POST['password'])) {
     $username = stripslashes($username);
     $password = stripslashes($password);
 
-// SQL query to fetch information of registerd users and finds user match.
+// SQL query to fetch information of registered users and finds user match.
     $query = "SELECT * FROM developers WHERE password='".$password."' AND username='".$username."'";
     $result = $db->query($query);
     if(isset($result)){

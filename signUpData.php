@@ -12,10 +12,28 @@
 <body>
 <?php include 'navbar.php';?>
 
-echo "<td>" . '<a href="Bug_Userprofile_Display.php?paramuser='.$buguser.'">'.$buguser.'</a>'."</td>";
-<?php
-include('db_connect.php');
 
+<?php
+//echo "<td>" . '<a href="Bug_Userprofile_Display.php?paramuser='.$buguser.'">'.$buguser.'</a>'."</td>";
+include('db_connect.php');
+session_start();
+$sqlgrab = "SELECT bugs.bugTitle,bugs.bugDescription , bugs.datePosted FROM bugs WHERE bugs.bugTitle='".$row['bugTitle']."'";
+$sqldb = mysqli_query($db, $sqlgrab) or die('Invalid query');
+
+echo "<table>";
+echo "<tr><th>Recent Bugs</th><th>Date Posted</th></tr>";
+//print values to screen
+while ($row2 = mysqli_fetch_array($sqldb, MYSQLI_ASSOC)) {
+    echo "<tr><td>";
+    echo $row2['bugTitle'];
+    echo "</td><td>";
+    echo $row2['bugDescription'];
+    echo "</td><td>";
+    echo $row2['datePosted'];
+    echo "</td></tr>";
+}
+echo "</table>";
+/**
 if(isset($_POST['submit'])) {
     $name = mysqli_real_escape_string($db, $_POST['name']);
     $username = mysqli_real_escape_string($db, $_POST['username']);
@@ -36,6 +54,7 @@ VALUES('$username','$name','$country','$password')";
     }
 }
 $db->close();
+ */
 ?>
 
 /**
