@@ -23,9 +23,10 @@ echo "<td>" . '<a href="signUpData.php?paramuser='.$sql.'">'.$sql.'</a>'."</td>"
 session_start();
 
 include('db_connect.php');
-$data="";
+
 $sql = "SELECT bugs.bugTitle, bugs.datePosted FROM bugs ORDER BY bugs.datePosted DESC LIMIT 5";
 $sqldb = mysqli_query($db, $sql) or die('Invalid query');
+$data='bugTitle';
 //$_SESSION['bugTitle']=$data;
 
 echo "<table>";
