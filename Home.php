@@ -26,16 +26,15 @@ include('db_connect.php');
 
 $sql = "SELECT bugs.bugTitle, bugs.datePosted FROM bugs ORDER BY bugs.datePosted DESC LIMIT 5";
 $sqldb = mysqli_query($db, $sql) or die('Invalid query');
-$data=['bugs.bugTitle'];
+//$data='bugs.bugTitle';
 $_SESSION['bugs.bugTitle']=$data;
 
 echo "<table>";
 echo "<tr><th>Recent Bugs</th><th>Date Posted</th></tr>";
 //print values to screen
 while ($row = mysqli_fetch_array($sqldb, MYSQLI_ASSOC)) {
-    $_SESSION['bugs.bugTitle']=$data;
     echo "<tr><td>";
-    echo '<a href="signUpData.php?paramuser='.$row.'.'.$data.'">'.$row.'.'.$data.'</a>';
+    echo '<a href="signUpData.php?paramuser='.$row[$data].'">'.$row[$data].'</a>';
     echo "</td><td>";
     echo $row['datePosted'];
     echo "</td></tr>";
