@@ -26,7 +26,7 @@ echo "<tr><th>Recent Bugs</th><th>Date Posted</th></tr>";
 //print values to screen
 while ($row2 = mysqli_fetch_array($sqldb, MYSQLI_ASSOC)) {
     echo "<tr><td>";
-    echo $row2['bugTitle'];
+    echo $row2[$data];
     echo "</td><td>";
     echo $row2['bugDescription'];
     echo "</td><td>";

@@ -33,6 +33,7 @@
 
 <?php
 include('db_connect.php');
+session_start();
 
 if(isset($_POST['submit'])) {
     $name = mysqli_real_escape_string($db, $_POST['name']);
