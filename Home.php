@@ -26,8 +26,8 @@ include('db_connect.php');
 
 $sql = "SELECT bugs.bugTitle, bugs.datePosted FROM bugs ORDER BY bugs.datePosted DESC LIMIT 5";
 $sqldb = mysqli_query($db, $sql) or die('Invalid query');
-$data='bugTitle';
-//$_SESSION['bugTitle']=$data;
+$data=['bugTitle'];
+$_SESSION['bugTitle']=$data;
 
 echo "<table>";
 echo "<tr><th>Recent Bugs</th><th>Date Posted</th></tr>";
