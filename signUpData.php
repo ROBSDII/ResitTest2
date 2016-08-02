@@ -17,7 +17,8 @@
 //echo "<td>" . '<a href="Bug_Userprofile_Display.php?paramuser='.$buguser.'">'.$buguser.'</a>'."</td>";
 include('db_connect.php');
 session_start();
-$sqlgrab = "SELECT bugs.bugTitle,bugs.bugDescription , bugs.datePosted FROM bugs WHERE bugs.bugTitle='".$row['bugTitle']."'";
+$data = $_SESSION['bugTitle'];
+$sqlgrab = "SELECT bugs.bugTitle,bugs.bugDescription , bugs.datePosted FROM bugs WHERE bugs.bugTitle='".$data."'";
 $sqldb = mysqli_query($db, $sqlgrab) or die('Invalid query');
 
 echo "<table>";
