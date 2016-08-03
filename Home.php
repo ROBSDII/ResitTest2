@@ -35,7 +35,7 @@ echo "<tr><th>Recent Bugs</th><th>Date Posted</th></tr>";
 while ($row = mysqli_fetch_array($sqldb, MYSQLI_ASSOC)) {
     $bug_title=$row['bugTitle'];
     echo "<tr><td>";
-    echo '<a href="signUpData.php?paramuser='.$bug_title.'">'.$bug_title.'</a>';
+    echo '<a href="signUpData.php?bug_Title='.$bug_title.'">'.$bug_title.'</a>';
     echo "</td><td>";
     echo $row['datePosted'];
     echo "</td></tr>";
