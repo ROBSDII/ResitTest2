@@ -19,7 +19,7 @@
 </div>
 
 <?php
-echo "<td>" . '<a href="signUpData.php?paramuser='.$sql.'">'.$sql.'</a>'."</td>";
+//echo "<td>" . '<a href="signUpData.php?paramuser='.$sql.'">'.$sql.'</a>'."</td>";
 session_start();
 
 include('db_connect.php');
