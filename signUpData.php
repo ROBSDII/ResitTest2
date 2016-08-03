@@ -23,7 +23,7 @@ $sqlgrab = "SELECT bugs.bugTitle,bugs.bugDescription , bugs.datePosted FROM bugs
 $sqldb = mysqli_query($db, $sqlgrab) or die('Invalid query');
 
 echo "<table>";
-echo "<tr><th>Recent Bugs</th><th>Date Posted</th></tr>";
+echo "<tr><th>Recent Bugs</th><th>Bug Description</th><th>Date Posted</th></tr>";
 //print values to screen
 while ($row2 = mysqli_fetch_array($sqldb, MYSQLI_ASSOC)) {
     echo "<tr><td>";
