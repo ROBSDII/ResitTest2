@@ -20,7 +20,8 @@ session_start();
 include('db_connect.php');
 
 $bug_title=$_GET["bug_title"];
-$sqlgrab = "SELECT bugs.bugTitle,bugs.bugDescription , bugs.datePosted FROM bugs WHERE bugs.bugTitle===$bug_title";
+echo $bug_title;
+$sqlgrab = "SELECT bugs.bugTitle,bugs.bugDescription , bugs.datePosted FROM bugs WHERE bugs.bugTitle=$bug_title";
 $sqldb = mysqli_query($db, $sqlgrab) or die('Invalid query');
 
 echo "<table>";
