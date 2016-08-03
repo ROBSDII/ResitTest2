@@ -15,8 +15,23 @@
 
 <?php
 session_start();
+//Azure link
+$dbserver="us-cdbr-azure-west-c.cloudapp.net";
+//Azure Username
+$dbusername="b790e3d6643f83";
+//Azure Password
+$dbpassword="ad68dd37";
+//Azure Database name
+$dbname="1313768data";
+$db = new mysqli($dbserver, $dbusername, $dbpassword, $dbname);
+// test if connection was established, and print any errors
+if (!$db) {
+    die('Connect Error: ' . mysqli_connect_errno());
+}else{
+    echo"PLease work";
+}
 //echo "<td>" . '<a href="Bug_Userprofile_Display.php?paramuser='.$buguser.'">'.$buguser.'</a>'."</td>";
-include('db_connect.php');
+//include('db_connect.php');
 
 $bug_title=$_GET["bug_title"];
 $sqlgrab = "SELECT bugs.bugTitle,bugs.bugDescription , bugs.datePosted FROM bugs WHERE bugs.bugTitle=$bug_title";
