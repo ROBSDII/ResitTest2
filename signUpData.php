@@ -8,8 +8,10 @@
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <?php include 'navbar.php';?>
 </head>
 <body>
+
 <form action = "signUpData.php" method = "POST" enctype = "multipart/form-data">
     <input type = "file" name = "image" />
     <input type = "submit"/>
@@ -19,7 +21,7 @@
         <li>File size: <?php echo $_FILES['image']['size'];  ?>
         <li>File type: <?php echo $_FILES['image']['type'] ?>
     </ul>
-<?php include 'navbar.php';?>
+
 
 
 <?php
@@ -72,7 +74,7 @@ if(isset($_FILES['image'])){
         print_r($errors);
     }
 }
-$sqlinsert = "INSERT INTO uploads VALUES('','','$file_name','image')";
+$sqlinsert = "INSERT INTO uploads VALUES('',$file_name','image')";
 
 if (mysqli_query($db, $sqlinsert)) {
    echo "Registered";
