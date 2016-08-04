@@ -59,7 +59,7 @@ if (isset($_POST['username']) && isset($_POST['password'])) {
         if (count($rows)> 0) {
 
             $_SESSION['login_user'] = $username; // Initializing Session
-            header("location: Home.php"); // Redirecting To Other Page
+            header("location: Welcome.php"); // Redirecting To Other Page
         } else {
             $error = "Username or Password is invalid";
 
