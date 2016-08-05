@@ -15,11 +15,11 @@
 <?php
 session_start();
 
-//echo "<td>" . '<a href="Bug_Userprofile_Display.php?paramuser='.$buguser.'">'.$buguser.'</a>'."</td>";
+
 include('db_connect.php');
 $username=$_SESSION['login_user'];
 
-//echo $bug_title;
+
 $sqlgrab = "SELECT developers.username,developers.country , bugs.bugTitle FROM developers,bugs WHERE developers.username='$username' AND developers.Dev_ID=bugs.Dev_ID";
 $sqldb = mysqli_query($db, $sqlgrab) or die('Invalid query');
 

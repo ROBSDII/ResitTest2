@@ -27,11 +27,11 @@
 <?php
 session_start();
 
-//echo "<td>" . '<a href="Bug_Userprofile_Display.php?paramuser='.$buguser.'">'.$buguser.'</a>'."</td>";
+
 include('db_connect.php');
 
 $bug_title=$_GET["bug_title"];
-//echo $bug_title;
+
 $sqlgrab = "SELECT bugs.bugTitle,bugs.bugDescription , bugs.datePosted FROM bugs WHERE bugs.bugTitle='$bug_title'";
 $sqldb = mysqli_query($db, $sqlgrab) or die('Invalid query');
 
@@ -48,7 +48,7 @@ while ($row2 = mysqli_fetch_array($sqldb, MYSQLI_ASSOC)) {
     echo "</td></tr>";
 }
 echo "</table>";
-
+/*
 if(isset($_FILES['image'])){
     $errors= array();
     $file_name = addslashes($_FILES['image']['name']);
@@ -81,6 +81,7 @@ if (mysqli_query($db, $sqlinsert)) {
 } else {
    echo "Error: " . $sqlinsert . "<br>" . $db->error;
 }
+*/
 ?>
 
 </body>

@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -12,37 +11,34 @@
 <body>
 <?php include 'navbar.php';?>
 
-<div class="container">
-    <h1>My First Bootstrap Page</h1>
-    <p>This part is inside a .container class.</p>
-    <p>The .container class provides a responsive fixed width container.</p>
-</div>
 
 <?php
-
 session_start();
 
+
 include('db_connect.php');
+$username=$_GET["username"];
 
-$sql = "SELECT bugs.bugTitle, bugs.datePosted FROM bugs ORDER BY bugs.datePosted DESC LIMIT 5";
-$sqldb = mysqli_query($db, $sql) or die('Invalid query');
 
+$sqlgrab = "SELECT developers.username,developers.country , bugs.bugTitle FROM developers,bugs WHERE developers.username='$username' AND developers.Dev_ID=bugs.Dev_ID";
+$sqldb = mysqli_query($db, $sqlgrab) or die('Invalid query');
 
 echo "<table>";
-echo "<tr><th>Recent Bugs</th><th>Date Posted</th></tr>";
+echo "<tr><th>Contributions</th><th>Developer</th><th>Country</th></tr>";
 //print values to screen
 while ($row = mysqli_fetch_array($sqldb, MYSQLI_ASSOC)) {
     $bug_title=$row['bugTitle'];
     echo "<tr><td>";
     echo '<a href="signUpData.php?bug_title='.$bug_title.'">'.$bug_title.'</a>';
     echo "</td><td>";
-    echo $row['datePosted'];
+    echo $row['username'];
+    echo "</td><td>";
+    echo $row['country'];
     echo "</td></tr>";
 }
 echo "</table>";
-// Free the resources associated with the result set
-// This is done automatically at the end of the script
-
 ?>
+
+
 </body>
 </html>
