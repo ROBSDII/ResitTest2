@@ -34,8 +34,10 @@ if(isset($_POST['searchinput']) && ($_POST['searchinput'] !="")){
 //Filter search query based on user input
 
     if($_POST['filter1']=="developers"){
-        echo "1";
+
         $sqlquery="SELECT developers.username FROM developers WHERE username LIKE '%searchinput%'";
+        echo "1";
+        echo $sqlquery;
 
     }else if ($_POST['filter1']=="keywords") {
         echo '2';
@@ -43,7 +45,7 @@ if(isset($_POST['searchinput']) && ($_POST['searchinput'] !="")){
     }
     $sqlone=mysqli_query($db, $sqlquery) or die('Invalid query');
     $sqltwo=mysqli_query($db, $sqlquery2) or die('Invalid query');
-    $count=mysqli_num_rows($sqlone);
+    //$count=mysqli_num_rows($sqlone);
 
     while ($row=mysqli_fetch_array($db,$sqlone)){
         echo "1.5";
