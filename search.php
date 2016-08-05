@@ -27,7 +27,7 @@ $sql1="SELECT developers.username FROM developers WHERE username LIKE '%searchin
 $sql2="SELECT bugs.bugTitle FROM bugs WHERE bugTitle LIKE '%searchinput%'";
 $sqlone=mysqli_query($db, $sql1) or die('Invalid query');
 $sqltwo=mysqli_query($db, $sql2) or die('Invalid query');
-echo"4";
+
 
 if(isset($_POST['searchinput']) && ($_POST['searchinput'] !="")){
     echo"3";
@@ -37,6 +37,7 @@ if(isset($_POST['searchinput']) && ($_POST['searchinput'] !="")){
         echo "1";
         //$sqlquery="SELECT developers.username FROM developers WHERE username LIKE '%searchinput%'";
         while ($row=mysqli_fetch_array($db,$sqlone)){
+            echo "1.5";
             $username=$row['username'];
             $username = stripslashes($username);
             echo '<a href="devsearch.php?username='.$username.'">'.$username.'</a>';
