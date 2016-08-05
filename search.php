@@ -15,8 +15,8 @@
     <input name="searchinput" type="text" size="50" maxlength="50" placeholder="Search">
     <input name ="searchbtn" type="submit">
     <select name="filter1">
-        <option value="developers"></option>
-        <option value="keywords"></option>
+        <option value="developers">developers</option>
+        <option value="keywords">keywords</option>
     </select>
 </form>
 <?php include('db_connect.php');
