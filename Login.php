@@ -25,8 +25,9 @@ include('db_connect.php');
 
 session_start(); // Starting Session
 
-$error=''; // Variable To Store Error Message
+$error=''; // Variable To Store Error Messages
 
+//checks user username and passwords
 if (isset($_POST['username']) && isset($_POST['password'])) {
     if (empty($_POST['username']) || empty($_POST['password'])) {
         $error = "username or password is invalid";
@@ -35,15 +36,15 @@ if (isset($_POST['username']) && isset($_POST['password'])) {
     }
 
 
-// Define $username and $password
+// Defines $username and $password variables
     $username = $_POST['username'];
     $password = $_POST['password'];
-// Establishing Connection with Server by passing server_name, user_id and password as a parameter
-// To protect MySQL injection for Security purpose
+// Establishes connection with server using the username and passwords
+// Protects against MySQL injections
     $username = stripslashes($username);
     $password = stripslashes($password);
 
-// SQL query to fetch information of registered users and finds user match.
+// SQL query that fetches information of registered users and finds the matching data.
     $query = "SELECT * FROM developers WHERE password='".$password."' AND username='".$username."'";
     $result = $db->query($query);
     if(isset($result)){
@@ -52,8 +53,8 @@ if (isset($_POST['username']) && isset($_POST['password'])) {
 
         if (count($rows)> 0) {
 
-            $_SESSION['login_user'] = $username; // Initializing Session
-            header("location: Welcome.php"); // Redirecting To Other Page
+            $_SESSION['login_user'] = $username; // Initializes Session
+            header("location: Welcome.php"); // Redirects Dev's profile page
         } else {
             $error = "Username or Password is invalid";
 

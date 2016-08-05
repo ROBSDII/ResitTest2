@@ -21,49 +21,33 @@
     </select>
 </form>
 <?php
+//starts session
 session_start();
+
+//includes database connection file
 include('db_connect.php');
-//$sql1="SELECT developers.username FROM developers WHERE username LIKE '%searchinput%'";
-//$sql2="SELECT bugs.bugTitle FROM bugs WHERE bugTitle LIKE '%searchinput%'";
-//$sqlone=mysqli_query($db, $sqlquery) or die('Invalid query');
 
 
-
+//takes info from user input in search bar and checks something is there
 if(isset($_POST['searchinput']) && ($_POST['searchinput'] !="")){
-    echo"3";
-//Filter search query based on user input
+
+//Filter search query based on choice of keywords or developers in the dropdown menu
 
     if($_POST['filter1']=="developers"){
 
         $sqlquery=mysqli_query($db,"SELECT *  FROM developers WHERE developers.username LIKE '%searchinput%'");
-        echo "1";
-        echo $sqlquery;
+
+
 
     }else if ($_POST['filter1']=="keywords") {
-        echo '2';
+
         $sqlquery2="SELECT bugs.bugTitle FROM bugs WHERE bugTitle LIKE '%searchinput%'";
     }
-    //$sqlone=mysqli_query($db, $sqlquery) or die('Invalid query');
-    //$sqltwo=mysqli_query($db, $sqlquery2) or die('Invalid query');
-    //$count=mysqli_num_rows($sqlone);
 
 
 
 }
-/*
-while ($row=mysqli_fetch_array($db,$sqlone)){
-    echo "1.5";
-    $username=$row['username'];
-    $username = stripslashes($username);
-    echo '<a href="devsearch.php?username='.$username.'">'.$username.'</a>';
-}
 
-while ($row=mysqli_fetch_array($db,$sqltwo)) {
-    $bug_title = $row['bug_title'];
-    $bug_title = stripslashes($bug_title);
-    echo '<a href="signUpData.php?bug_title=' . $bug_title . '">' . $bug_title . '</a>';
-}
-*/
 ?>
 </body>
 </html>

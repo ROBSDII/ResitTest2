@@ -13,16 +13,20 @@
 
 
 <?php
+//starts session
 session_start();
 
-
+//includes database connect file
 include('db_connect.php');
+
+//gathers username that was clicked on from previous as a GET variable
 $username=$_GET['username'];
 
-
+//sql query that gets dev info to display for avg users
 $sqlgrab = "SELECT developers.username,developers.country , bugs.bugTitle FROM developers,bugs WHERE developers.username='$username' AND developers.Dev_ID=bugs.Dev_ID";
 $sqldb = mysqli_query($db, $sqlgrab) or die('Invalid query');
 
+//this table organizes that data and provides link to bug page contributions
 echo "<table>";
 echo "<tr><th>Contributions</th><th>Logged in As</th><th>Country</th></tr>";
 //print values to screen

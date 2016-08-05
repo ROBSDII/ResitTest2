@@ -25,15 +25,19 @@
 
 
 <?php
+//starts session
 session_start();
 
-
+//includes database connection file
 include('db_connect.php');
 
+//gathers bug title as a GET variable from previous page
 $bug_title=$_GET["bug_title"];
 
+//sql queries that gathers info about bug from database
 $sqlgrab = "SELECT bugs.bugTitle,bugs.bugDescription , bugs.datePosted FROM bugs WHERE bugs.bugTitle='$bug_title'";
 $sqldb = mysqli_query($db, $sqlgrab) or die('Invalid query');
+
 
 echo "<table>";
 echo "<tr><th>Bug Title</th><th>Bug Description</th><th>Date Posted</th></tr>";
@@ -48,6 +52,8 @@ while ($row2 = mysqli_fetch_array($sqldb, MYSQLI_ASSOC)) {
     echo "</td></tr>";
 }
 echo "</table>";
+
+//code that doesn't seem to working properly below
 /*
 if(isset($_FILES['image'])){
     $errors= array();

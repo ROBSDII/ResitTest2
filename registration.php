@@ -32,9 +32,13 @@
 </form>
 
 <?php
+//includes database connection file
 include('db_connect.php');
+
+//starts session
 session_start();
 
+//sends data to database to be inserted into database
 if(isset($_POST['submit'])) {
     $name = mysqli_real_escape_string($db, $_POST['name']);
     $username = mysqli_real_escape_string($db, $_POST['username']);
@@ -47,7 +51,7 @@ if(isset($_POST['submit'])) {
     if(isset($result)){
         $rows = $result->fetch_array();
 
-//  while () {
+
      if (count($rows)> 0) {
         echo "Username already taken, please choose another";
         die();

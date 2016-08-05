@@ -1,4 +1,4 @@
-
+<?php//This navbar ensures that average users have appropriate page options?>
 <!DOCTYPE html>
 <html>
 <head>

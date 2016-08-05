@@ -1,4 +1,4 @@
-
+<?php//This navbar ensures that logged in users stay logged in and can see the pages a logged in user should be seeing?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -28,5 +28,4 @@
 </body>
 </html>
 
-<?php
-?>
+

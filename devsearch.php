@@ -13,16 +13,20 @@
 
 
 <?php
+//starts session
 session_start();
 
-
+//includes DB connection file
 include('db_connect.php');
+
+//gathers username from previous page as a GET variable
 $username=$_GET["username"];
 
-
+//sql query gathers data from database
 $sqlgrab = "SELECT developers.username,developers.country , bugs.bugTitle FROM developers,bugs WHERE developers.username='$username' AND developers.Dev_ID=bugs.Dev_ID";
 $sqldb = mysqli_query($db, $sqlgrab) or die('Invalid query');
 
+//table organizes dev info
 echo "<table>";
 echo "<tr><th>Contributions</th><th>Developer</th><th>Country</th></tr>";
 //print values to screen

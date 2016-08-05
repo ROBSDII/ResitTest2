@@ -13,16 +13,20 @@
 
 
 <?php
+//starting session
 session_start();
 
-
+//including php file that connects to database
 include('db_connect.php');
+
+//gathers username from login page to be used to gather developers info
 $username=$_SESSION['login_user'];
 
-
+//sql queries to gather the details of the user logging in
 $sqlgrab = "SELECT developers.username,developers.country , bugs.bugTitle FROM developers,bugs WHERE developers.username='$username' AND developers.Dev_ID=bugs.Dev_ID";
 $sqldb = mysqli_query($db, $sqlgrab) or die('Invalid query');
 
+//this table sorts out the info gathered from the database
 echo "<table>";
 echo "<tr><th>Contributions</th><th>Logged in As</th><th>Country</th></tr>";
 //print values to screen
