@@ -39,7 +39,7 @@ if(isset($_POST['searchinput']) && ($_POST['searchinput'] !="")){
             echo '<a href="devsearch.php?username='.$username.'">'.$username.'</a>';
         }
     }
-}else if ($_POST['filter1']=="bugs"){
+}else if ($_POST['filter1']=="keywords"){
     //$sqlquery="SELECT bugs.bugTitle FROM bugs WHERE bugTitle LIKE '%searchinput%'";
     while ($row=mysqli_fetch_array($db,$sqltwo)) {
         $bug_title = $row['bug_title'];
