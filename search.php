@@ -35,7 +35,7 @@ if(isset($_POST['searchinput']) && ($_POST['searchinput'] !="")){
 
     if($_POST['filter1']=="developers"){
 
-        $sqlquery="SELECT developers.username FROM developers WHERE username LIKE '%searchinput%'";
+        $sqlquery="SELECT *  FROM developers WHERE developers.username LIKE '%searchinput%'";
         echo "1";
         echo $sqlquery;
 
