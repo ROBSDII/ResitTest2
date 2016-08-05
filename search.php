@@ -25,7 +25,7 @@ session_start();
 include('db_connect.php');
 //$sql1="SELECT developers.username FROM developers WHERE username LIKE '%searchinput%'";
 //$sql2="SELECT bugs.bugTitle FROM bugs WHERE bugTitle LIKE '%searchinput%'";
-$sqlone=mysqli_query($db, $sqlquery) or die('Invalid query');
+//$sqlone=mysqli_query($db, $sqlquery) or die('Invalid query');
 //$sqltwo=mysqli_query($db, $sql2) or die('Invalid query');
 
 
