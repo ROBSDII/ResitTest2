@@ -37,11 +37,11 @@ if(isset($_POST['searchinput']) && ($_POST['searchinput'] !="")){
         echo "1";
         $sqlquery="SELECT developers.username FROM developers WHERE username LIKE '%searchinput%'";
 
-    }
-}else if ($_POST['filter1']=="keywords") {
-    echo '2';
-    $sqlquery="SELECT bugs.bugTitle FROM bugs WHERE bugTitle LIKE '%searchinput%'";
+    }else if ($_POST['filter1']=="keywords") {
+        echo '2';
+        $sqlquery="SELECT bugs.bugTitle FROM bugs WHERE bugTitle LIKE '%searchinput%'";
 
+    }
 }
 /*
 while ($row=mysqli_fetch_array($db,$sqlone)){
