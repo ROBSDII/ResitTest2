@@ -23,22 +23,25 @@
 <?php
 session_start();
 include('db_connect.php');
-
+$sql1="SELECT developers.username FROM developers WHERE username LIKE '%searchinput%'";
+$sql2="SELECT bugs.bugTitle FROM bugs WHERE bugTitle LIKE '%searchinput%'";
+$sqlone=mysqli_query($db, $sql1) or die('Invalid query');
+$sqltwo=mysqli_query($db, $sql2) or die('Invalid query');
 
 if(isset($_POST['searchinput']) && ($_POST['searchinput'] !="")){
 //Filter search query based on user input
 
     if($_POST['filter1']=="developers"){
-        $sqlquery="SELECT developers.username FROM developers WHERE username LIKE '%searchinput%'";
-        while ($row=mysqli_fetch_array($db,$sqlquery)){
+        //$sqlquery="SELECT developers.username FROM developers WHERE username LIKE '%searchinput%'";
+        while ($row=mysqli_fetch_array($db,$sql1)){
             $username=$row['username'];
             $username = stripslashes($username);
             echo '<a href="signUpData.php?username='.$username.'">'.$username.'</a>';
         }
     }
 }else if ($_POST['filter1']=="bugs"){
-    $sqlquery="SELECT bugs.bugTitle FROM bugs WHERE bugTitle LIKE '%searchinput%'";
-    while ($row=mysqli_fetch_array($db,$sqlquery)) {
+    //$sqlquery="SELECT bugs.bugTitle FROM bugs WHERE bugTitle LIKE '%searchinput%'";
+    while ($row=mysqli_fetch_array($db,$sql2)) {
         $bug_title = $row['bug_title'];
         $bug_title = stripslashes($bug_title);
         echo '<a href="signUpData.php?bug_title=' . $bug_title . '">' . $bug_title . '</a>';
