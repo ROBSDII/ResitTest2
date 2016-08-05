@@ -33,7 +33,7 @@ if(isset($_POST['searchinput']) && ($_POST['searchinput'] !="")){
 
     if($_POST['filter1']=="developers"){
         //$sqlquery="SELECT developers.username FROM developers WHERE username LIKE '%searchinput%'";
-        while ($row=mysqli_fetch_array($db,$sql1)){
+        while ($row=mysqli_fetch_array($db,$sqlone)){
             $username=$row['username'];
             $username = stripslashes($username);
             echo '<a href="signUpData.php?username='.$username.'">'.$username.'</a>';
@@ -41,7 +41,7 @@ if(isset($_POST['searchinput']) && ($_POST['searchinput'] !="")){
     }
 }else if ($_POST['filter1']=="bugs"){
     //$sqlquery="SELECT bugs.bugTitle FROM bugs WHERE bugTitle LIKE '%searchinput%'";
-    while ($row=mysqli_fetch_array($db,$sql2)) {
+    while ($row=mysqli_fetch_array($db,$sqltwo)) {
         $bug_title = $row['bug_title'];
         $bug_title = stripslashes($bug_title);
         echo '<a href="signUpData.php?bug_title=' . $bug_title . '">' . $bug_title . '</a>';
