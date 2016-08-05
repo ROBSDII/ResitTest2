@@ -17,7 +17,7 @@
         </div>
         <ul class="nav navbar-nav navbar-center">
             <li class="active"><a href="Welcome.php">Profile</a></li>
-            <li><a href="search.php">Search</a></li>
+            <li><a href="devsearch2.php">Search</a></li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
             <li><a href="Home.php"><span class="glyphicon glyphicon-user"></span>Logout</a></li>
