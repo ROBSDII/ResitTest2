@@ -31,9 +31,4 @@
 </html>
 
 <?php
-/**
- * Created by PhpStorm.
- * User: Robert
- * Date: 7/31/2016
- * Time: 10:34 PM
- */
+?>
