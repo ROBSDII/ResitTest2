@@ -12,7 +12,7 @@
 <?php include 'navbar.php';?>
 <div id="content">
     <div id="container">
-        <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_1"]);?>">
+        <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
           <label>Username: </label><input type="text" name="username"/><br><br/>
             <label>Password: </label><input type="password" name="password"/><br><br/>
             <input type="submit" value="Login"/><br/>
@@ -49,7 +49,7 @@ if (isset($_POST['username']) && isset($_POST['password'])) {
     if(isset($result)){
         $rows = $result->fetch_array();
 
-        //  while () {
+
         if (count($rows)> 0) {
 
             $_SESSION['login_user'] = $username; // Initializing Session
