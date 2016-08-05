@@ -1,29 +1,4 @@
-<?php
-session_start();
-include('db_connect.php');
 
-
-if(isset($_POST['searchinput']) && ($_POST['searchinput'] !="")){
-//Filter search query based on user input
-
-    if($_POST['filter1']=="developers"){
-        $sqlquery="SELECT developers.username FROM developers WHERE username LIKE '%searchinput%'";
-        while ($row=mysqli_fetch_array($db,$sqlquery)){
-            $username=$row['username'];
-            $username = stripslashes($username);
-            echo '<a href="signUpData.php?username='.$username.'">'.$username.'</a>';
-        }
-    }
-    }else if ($_POST['filter1']=="bugs"){
-        $sqlquery="SELECT bugs.bugTitle FROM bugs WHERE bugTitle LIKE '%searchinput%'";
-    while ($row=mysqli_fetch_array($db,$sqlquery)) {
-        $bug_title = $row['bug_title'];
-        $bug_title = stripslashes($bug_title);
-        echo '<a href="signUpData.php?bug_title=' . $bug_title . '">' . $bug_title . '</a>';
-    }
-}
-
-?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -46,7 +21,29 @@ if(isset($_POST['searchinput']) && ($_POST['searchinput'] !="")){
     </select>
 </form>
 <?php
+session_start();
+include('db_connect.php');
 
+
+if(isset($_POST['searchinput']) && ($_POST['searchinput'] !="")){
+//Filter search query based on user input
+
+    if($_POST['filter1']=="developers"){
+        $sqlquery="SELECT developers.username FROM developers WHERE username LIKE '%searchinput%'";
+        while ($row=mysqli_fetch_array($db,$sqlquery)){
+            $username=$row['username'];
+            $username = stripslashes($username);
+            echo '<a href="signUpData.php?username='.$username.'">'.$username.'</a>';
+        }
+    }
+}else if ($_POST['filter1']=="bugs"){
+    $sqlquery="SELECT bugs.bugTitle FROM bugs WHERE bugTitle LIKE '%searchinput%'";
+    while ($row=mysqli_fetch_array($db,$sqlquery)) {
+        $bug_title = $row['bug_title'];
+        $bug_title = stripslashes($bug_title);
+        echo '<a href="signUpData.php?bug_title=' . $bug_title . '">' . $bug_title . '</a>';
+    }
+}
 
 ?>
 </body>
