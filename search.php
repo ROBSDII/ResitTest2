@@ -40,7 +40,7 @@ if(isset($_POST['searchinput']) && ($_POST['searchinput'] !="")){
         while ($row=mysqli_fetch_array($db,$sqlone)){
             echo "1.5";
             $username=$row['username'];
-            $username = stripslashes($username);
+            //$username = stripslashes($username);
             echo '<a href="devsearch.php?username='.$username.'">'.$username.'</a>';
         }
 
@@ -51,7 +51,7 @@ if(isset($_POST['searchinput']) && ($_POST['searchinput'] !="")){
         while ($row=mysqli_fetch_array($db,$sqltwo)){
             echo "1.5";
             $username=$row['username'];
-            $username = stripslashes($username);
+            //$username = stripslashes($username);
             echo '<a href="devsearch.php?username='.$username.'">'.$username.'</a>';
         }
 
