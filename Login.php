@@ -21,13 +21,7 @@
 </div>
 </body>
 <?php
-/**
- * Created by PhpStorm.
- * User: Robert
- * Date: 7/21/2016
- * Time: 2:13 PM
- */
-include('db_connect.php');
+
 
 session_start(); // Starting Session
 
