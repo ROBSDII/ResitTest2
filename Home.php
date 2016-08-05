@@ -1,5 +1,5 @@
 
-
+<?php/*ending session if one has been active*/ session_destroy()?>
 <!DOCTYPE html>
 <html>
 <head>
