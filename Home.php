@@ -18,11 +18,13 @@
 </div>
 
 <?php
+//including php file that connects to database
+include('db_connect.php');
+
 //starting session
 session_start();
 
-//including php file that connects to database
-include('db_connect.php');
+
 
 //sql queries that get stored as variables to be used in the table below
 $sql = "SELECT bugs.bugTitle, bugs.datePosted,developers.username FROM bugs,developers WHERE developers.Dev_ID=bugs.Dev_ID ORDER BY bugs.datePosted DESC LIMIT 5";
