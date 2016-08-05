@@ -35,7 +35,7 @@ while ($row = mysqli_fetch_array($sqldb, MYSQLI_ASSOC)) {
 
     //the two variables below create get variables to be used on other pages
     $bug_title=$row['bugTitle'];
-    $username=$row['username'];
+    //$username=$row['username'];
     echo "<tr><td>";
 
     //sends the bug title to the page which displays more of the bugs info
