@@ -36,7 +36,7 @@ if(isset($_POST['searchinput']) && ($_POST['searchinput'] !="")){
         while ($row=mysqli_fetch_array($db,$sqlone)){
             $username=$row['username'];
             $username = stripslashes($username);
-            echo '<a href="signUpData.php?username='.$username.'">'.$username.'</a>';
+            echo '<a href="devsearch.php?username='.$username.'">'.$username.'</a>';
         }
     }
 }else if ($_POST['filter1']=="bugs"){
