@@ -1,5 +1,3 @@
-
-<?php/*ending session if one has been active*/ session_destroy()?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,7 +9,7 @@
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 </head>
 <body>
-<?php/*including navbar for avg users*/  include 'navbar.php';?>
+<?php/*including navbar for avg users*/ session_write_close(); include 'navbar.php';?>
 
 <div class="container">
     <h1>Welcome to BigBugFinder</h1>
