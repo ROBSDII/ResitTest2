@@ -29,7 +29,7 @@ include('db_connect.php');
 
 
 //takes info from user input in search bar and checks something is there
-if(isset($_POST['searchinput']) && ($_POST['searchinput'] !="")){
+if(isset(addslashes($_POST['searchinput']) && ($_POST['searchinput'] !="")){
 
 //Filter search query based on choice of keywords or developers in the dropdown menu
 
