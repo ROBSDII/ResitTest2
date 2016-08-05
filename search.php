@@ -27,11 +27,14 @@ $sql1="SELECT developers.username FROM developers WHERE username LIKE '%searchin
 $sql2="SELECT bugs.bugTitle FROM bugs WHERE bugTitle LIKE '%searchinput%'";
 $sqlone=mysqli_query($db, $sql1) or die('Invalid query');
 $sqltwo=mysqli_query($db, $sql2) or die('Invalid query');
+echo"4";
 
 if(isset($_POST['searchinput']) && ($_POST['searchinput'] !="")){
+    echo"3";
 //Filter search query based on user input
 
     if($_POST['filter1']=="developers"){
+        echo "1";
         //$sqlquery="SELECT developers.username FROM developers WHERE username LIKE '%searchinput%'";
         while ($row=mysqli_fetch_array($db,$sqlone)){
             $username=$row['username'];
@@ -40,6 +43,7 @@ if(isset($_POST['searchinput']) && ($_POST['searchinput'] !="")){
         }
     }
 }else if ($_POST['filter1']=="keywords"){
+    echo '2';
     //$sqlquery="SELECT bugs.bugTitle FROM bugs WHERE bugTitle LIKE '%searchinput%'";
     while ($row=mysqli_fetch_array($db,$sqltwo)) {
         $bug_title = $row['bug_title'];
